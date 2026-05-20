@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founders AGI — Intelligence for Builders</title>
+<meta name="description" content="Founders AGI is building the future of intelligent tools for entrepreneurs, startups, and visionary builders worldwide.">
+<meta property="og:title" content="Founders AGI">
+<meta property="og:description" content="Intelligence for Builders">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --bg2: #0f0f0f;
+    --bg3: #161616;
+    --surface: #1a1a1a;
+    --surface2: #222222;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0f0f0;
+    --text2: #888;
+    --text3: #555;
+    --accent: #e8f5e1;
+    --accent2: #a8d48a;
+    --accent3: #6eb84a;
+    --accent-glow: rgba(110,184,74,0.15);
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --nav-h: 68px;
+    --r: 12px;
+    --r2: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    width: 36px; height: 36px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text2);
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--text);
+  }
+
+  .btn-primary {
+    background: var(--accent3);
+    border: 1px solid var(--accent3);
+    color: #0a1a05;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent2);
+    border-color: var(--accent2);
+    transform: translateY(-1px);
+  }
+
+  .btn-lg {
+    padding: 14px 32px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: calc(var(--nav-h) + 80px) 48px 100px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(110,184,74,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,184,74,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 400px;
+    top: 10%; left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(110,184,74,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 860px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(110,184,74,0.3);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent2);
+    background: rgba(110,184,74,0.07);
+    margin-bottom: 32px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .hero-badge span.dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent3);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(44px, 7vw, 82px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    color: #fff;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--accent2) 0%, var(--accent3) 50%, #4a9a2a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text2);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px;
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text3);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 48px; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 540px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* PRODUCTS */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    overflow: hidden;
+    margin-top: 60px;
+  }
+
+  .product-card {
+    background: var(--bg2);
+    padding: 40px 36px;
+    transition: background 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .product-card:hover { background: var(--bg3); }
+
+  .product-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .product-card h3 {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .product-card p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .product-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  .tag-soon { background: rgba(110,184,74,0.1); color: var(--accent3); }
+  .tag-live { background: rgba(110,184,74,0.2); color: #8fd46a; }
+  .tag-beta { background: rgba(200,160,60,0.15); color: #c8a040; }
+
+  .product-arrow {
+    display: block;
+    margin-top: 24px;
+    font-size: 18px;
+    color: var(--text3);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .product-card:hover .product-arrow {
+    color: var(--accent3);
+    transform: translateX(4px);
+  }
+
+  /* VISION SECTION */
+  .vision-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .vision-left { }
+
+  .vision-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .vision-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    background: var(--bg2);
+    transition: border-color 0.2s;
+  }
+
+  .vision-item:hover { border-color: var(--border2); }
+
+  .vision-icon {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--accent-glow);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .vision-item h4 {
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .vision-item p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* FOUNDER */
+  .founder-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    overflow: hidden;
+    background: var(--bg2);
+    margin-top: 60px;
+  }
+
+  .founder-left {
+    background: linear-gradient(160deg, #0e1f08 0%, #0d1a0b 100%);
+    padding: 60px 48px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-left::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(110,184,74,0.08);
+    top: -80px; left: -80px;
+  }
+
+  .founder-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(110,184,74,0.4);
+    background: linear-gradient(135deg, var(--accent3), #3a7a1a);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    position: relative; z-index: 1;
+    margin-bottom: 24px;
+  }
+
+  .founder-name {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    position: relative; z-index: 1;
+  }
+
+  .founder-title {
+    font-size: 13px;
+    color: var(--accent2);
+    margin-top: 4px;
+    position: relative; z-index: 1;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .founder-right {
+    padding: 60px;
+  }
+
+  .founder-right h3 {
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .founder-right p {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .founder-links {
+    display: flex; gap: 12px; margin-top: 32px;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 23px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent3), transparent);
+  }
+
+  .roadmap-item {
+    display: flex;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .roadmap-dot {
+    width: 48px; height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    position: relative; z-index: 1;
+  }
+
+  .roadmap-dot.active {
+    border-color: var(--accent3);
+    background: rgba(110,184,74,0.1);
+  }
+
+  .roadmap-content { flex: 1; }
+
+  .roadmap-phase {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .roadmap-content h4 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .roadmap-content p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .roadmap-time {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* CTA BAND */
+  .cta-band {
+    margin: 0 48px;
+    border-radius: var(--r2);
+    background: linear-gradient(135deg, #0d1f08 0%, #0a1505 100%);
+    border: 1px solid rgba(110,184,74,0.2);
+    padding: 80px 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(110,184,74,0.1) 0%, transparent 70%);
+  }
+
+  .cta-band h2 {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    position: relative; z-index: 1;
+  }
+
+  .cta-band p {
+    font-size: 15px;
+    color: rgba(168,212,138,0.7);
+    margin-top: 12px;
+    font-weight: 300;
+    position: relative; z-index: 1;
+  }
+
+  .cta-actions {
+    display: flex; flex-direction: column; gap: 12px;
+    position: relative; z-index: 1;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    padding: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--text3);
+    line-height: 1.7;
+    margin-top: 16px;
+    font-weight: 300;
+  }
+
+  .footer-col h5 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: var(--text3);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px;
+    color: var(--text3);
+  }
+
+  /* MOBILE NAV */
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 8px;
+    background: none; border: none;
+  }
+
+  .hamburger span {
+    width: 22px; height: 1.5px;
+    background: var(--text2);
+    display: block;
+    transition: all 0.2s;
+  }
+
+  /* MODAL */
+  .modal-bg {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-bg.open { display: flex; }
+
+  .modal {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: var(--r2);
+    padding: 48px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+  }
+
+  .modal h3 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .modal p {
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 28px;
+  }
+
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    background: none; border: none;
+    color: var(--text3); font-size: 20px;
+    cursor: pointer; transition: color 0.2s;
+    font-family: inherit;
+  }
+
+  .modal-close:hover { color: var(--text); }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--accent3);
+  }
+
+  .form-group select option { background: var(--bg2); }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .form-success .checkmark {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(110,184,74,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 16px;
+  }
+
+  .form-success h4 {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .form-success p {
+    font-size: 14px;
+    color: var(--text2);
+    margin: 0;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu {
+      position: fixed;
+      inset: var(--nav-h) 0 0 0;
+      background: rgba(8,8,8,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      padding: 40px 32px;
+      display: none; flex-direction: column; gap: 24px;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: all 0.25s;
+    }
+    .mobile-menu.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-menu a {
+      font-size: 18px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section { padding: 70px 24px; }
+    .hero { padding: calc(var(--nav-h) + 60px) 24px 80px; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; }
+    .vision-layout { grid-template-columns: 1fr; gap: 40px; }
+    .founder-card { grid-template-columns: 1fr; }
+    .founder-right { padding: 36px; }
+    .cta-band { margin: 0 24px; padding: 48px 36px; grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    footer { padding: 40px 24px; }
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#products" onclick="closeMobileMenu()">Products</a>
+  <a href="#vision" onclick="closeMobileMenu()">Vision</a>
+  <a href="#founder" onclick="closeMobileMenu()">About</a>
+  <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
+  <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank">LinkedIn</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Founders AGI Logo" id="nav-logo-img">
+    <span class="nav-logo-text">Founders AGI</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-ghost" style="display:none" id="desktop-linkedin">LinkedIn ↗</a>
+    <button class="btn btn-primary" onclick="openModal()">Join Waitlist</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Now Building · AGI for Founders
+    </div>
+
+    <h1>
+      Intelligence<br>
+      Built for <span class="accent">Builders</span>
+    </h1>
+
+    <p>Founders AGI is creating a new generation of AI tools that help entrepreneurs move faster, think bigger, and build companies that matter — from day zero to global scale.</p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-lg" onclick="openModal()">Join the Waitlist</button>
+      <a href="#products" class="btn btn-ghost btn-lg">Explore Products →</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Products in Build</div>
+      </div>
+      <div class="stat" style="border-left: 1px solid var(--border); border-right: 1px solid var(--border); padding: 0 48px;">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Founders Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2025</div>
+        <div class="stat-label">Founded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" style="background: var(--bg2);">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Products</div>
+      <h2 class="section-title">Tools that move<br>at founder speed</h2>
+      <p class="section-sub">Each product targets a critical bottleneck in building a company — from ideation to fundraising to scale.</p>
+    </div>
+
+    <div class="products-grid fade-up" style="transition-delay: 0.1s;">
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(110,184,74,0.12);">🧠</div>
+        <h3>FounderMind</h3>
+        <p>Your AI co-founder. Ask it anything about your business — strategy, pricing, go-to-market, hiring. Trained on 10,000+ startup patterns.</p>
+        <div class="product-tag tag-beta">Beta</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(60,160,200,0.1);">📊</div>
+        <h3>PitchForge</h3>
+        <p>Generate investor-ready pitch decks and financial models from a single paragraph. Tailored to your industry and stage — Seed, Series A, and beyond.</p>
+        <div class="product-tag tag-soon">Coming Soon</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(200,160,60,0.1);">⚡</div>
+        <h3>LaunchOS</h3>
+        <p>The complete operating system for launching. Legal docs, landing pages, cold outreach, product specs — all generated and ready to deploy in hours.</p>
+        <div class="product-tag tag-soon">Coming Soon</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(180,80,140,0.1);">🔮</div>
+        <h3>MarketLens</h3>
+        <p>Deep market intelligence, competitor tracking, and trend forecasting. Know your market before your competitors do — with AI that reads signals in real time.</p>
+        <div class="product-tag tag-soon">Coming Soon</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(110,184,74,0.12);">🤝</div>
+        <h3>NetworkAGI</h3>
+        <p>AI-powered relationship intelligence. Find the right investors, advisors, and early customers — with warm intro paths and personalized outreach that actually converts.</p>
+        <div class="product-tag tag-soon">Coming Soon</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+      <a href="#" class="product-card" onclick="return false;">
+        <div class="product-icon" style="background: rgba(100,100,200,0.1);">🏗️</div>
+        <h3>BuilderAPI</h3>
+        <p>Founders AGI infrastructure as an API. Embed our founder intelligence into your own products, communities, or accelerator programs.</p>
+        <div class="product-tag tag-soon">Coming Soon</div>
+        <span class="product-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="container">
+    <div class="vision-layout">
+      <div class="vision-left fade-up">
+        <div class="section-label">Our Vision</div>
+        <h2 class="section-title">Every founder deserves a world-class team in their corner</h2>
+        <p class="section-sub" style="margin-top: 16px;">The best founders in history had incredible networks, advisors, and resources. We're democratizing that unfair advantage — with AI.</p>
+        <br>
+        <p class="section-sub">Founders AGI is not just a product company. It's a foundation — built to empower the next billion builders, regardless of where they start.</p>
+        <br>
+        <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-ghost" style="margin-top: 8px;">Follow on LinkedIn ↗</a>
+      </div>
+
+      <div class="vision-right fade-up" style="transition-delay: 0.15s;">
+        <div class="vision-item">
+          <div class="vision-icon">🌍</div>
+          <div>
+            <h4>Global by Default</h4>
+            <p>Built for founders everywhere — not just Silicon Valley. Localized intelligence for every market, language, and regulatory environment.</p>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-icon">⚙️</div>
+          <div>
+            <h4>AGI-Native Architecture</h4>
+            <p>Not wrappers around existing tools — purpose-built AI systems trained specifically on founder patterns and startup dynamics.</p>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-icon">🔓</div>
+          <div>
+            <h4>Open Foundation</h4>
+            <p>Part of our work will always be open and accessible. We believe the tools of creation should be available to everyone who dares to build.</p>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-icon">📈</div>
+          <div>
+            <h4>Compounding Intelligence</h4>
+            <p>Every founder who uses Founders AGI makes the system smarter for the next one. A collective intelligence that grows with the community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" style="background: var(--bg2);">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Founder</div>
+      <h2 class="section-title">Who's building this</h2>
+    </div>
+
+    <div class="founder-card fade-up" style="transition-delay: 0.1s;">
+      <div class="founder-left">
+        <div>
+          <div class="founder-avatar">CS</div>
+          <div class="founder-name">Chandan Sah Rocky</div>
+          <div class="founder-title">Founder & CEO · Founders AGI</div>
+        </div>
+        <div style="margin-top: 40px; position: relative; z-index: 1;">
+          <a href="https://www.linkedin.com/in/chandan-sah-rocky-%E6%96%87%E6%B5%A9-5803bb1b4/" target="_blank" class="btn btn-ghost" style="font-size: 13px; width: 100%; justify-content: center;">
+            LinkedIn Profile ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="founder-right">
+        <h3>"I'm building the tools I wish existed when I started."</h3>
+        <p>Chandan Sah Rocky — also known as 文浩 — is a global entrepreneur on a mission to equip the next generation of founders with the AI intelligence they need to succeed.</p>
+        <p>Growing up with limited access to networks and resources that wealthier founders take for granted, Chandan experienced firsthand how much the playing field is tilted. Founders AGI is his answer to that imbalance.</p>
+        <p>With a vision that spans continents and cultures, he's building AI systems that understand the real challenges of building from scratch — and are genuinely useful from day one.</p>
+
+        <div class="founder-links">
+          <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-primary">
+            Follow Founders AGI
+          </a>
+          <button class="btn btn-ghost" onclick="openModal()">
+            Work With Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Roadmap</div>
+      <h2 class="section-title">How we're building this</h2>
+      <p class="section-sub">A clear path from foundation to global infrastructure — built in public.</p>
+    </div>
+
+    <div class="roadmap fade-up" style="transition-delay: 0.1s;">
+
+      <div class="roadmap-item">
+        <div class="roadmap-dot active">🛠️</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 1 · Current</div>
+          <h4>Foundation & First Products</h4>
+          <p>Building FounderMind (beta), establishing community, and proving the core intelligence layer works for real founders with real problems.</p>
+          <div class="roadmap-time">2025 · Q1–Q3</div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-dot">🚀</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 2</div>
+          <h4>Product Suite Launch</h4>
+          <p>PitchForge and LaunchOS go live. First paying customers. Public launch and press. Growing to 1,000+ active founders using Founders AGI daily.</p>
+          <div class="roadmap-time">2025 · Q4 – 2026 Q1</div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-dot">🌐</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 3</div>
+          <h4>Global Expansion</h4>
+          <p>MarketLens and NetworkAGI launch. First enterprise and accelerator partnerships. Expanding to emerging markets — South Asia, Africa, Southeast Asia, LATAM.</p>
+          <div class="roadmap-time">2026</div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-dot">⚡</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 4</div>
+          <h4>BuilderAPI & Infrastructure</h4>
+          <p>Open the Founders AGI platform as infrastructure. Let other builders, communities, and accelerators embed our intelligence into their own ecosystems.</p>
+          <div class="roadmap-time">2026–2027</div>
+        </div>
+      </div>
+
+      <div class="roadmap-item" style="border-bottom: none;">
+        <div class="roadmap-dot">🤖</div>
+        <div class="roadmap-content">
+          <div class="roadmap-phase">Phase 5 · The Dream</div>
+          <h4>Full AGI Foundation</h4>
+          <p>A fully autonomous AI that can co-found companies, manage early operations, and guide startups from zero to market without a traditional support structure.</p>
+          <div class="roadmap-time">2027+</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band fade-up">
+  <div>
+    <h2>Ready to build the future?</h2>
+    <p>Join the waitlist. Be the first to access Founders AGI when we launch.</p>
+  </div>
+  <div class="cta-actions">
+    <button class="btn btn-primary btn-lg" onclick="openModal()">Join Waitlist →</button>
+    <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-ghost" style="text-align:center; justify-content: center;">Follow on LinkedIn</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="justify-content: flex-start;">
+        <img src="logo.png" alt="Founders AGI" style="width:28px; height:28px; filter: brightness(0) invert(1); opacity:0.6;">
+        <span class="nav-logo-text" style="font-size: 15px;">Founders AGI</span>
+      </a>
+      <p>Building the intelligence layer for the next generation of founders, globally. A foundation for builders everywhere.</p>
+      <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-ghost" style="font-size: 12px; padding: 7px 14px;">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Products</h5>
+      <a href="#">FounderMind</a>
+      <a href="#">PitchForge</a>
+      <a href="#">LaunchOS</a>
+      <a href="#">MarketLens</a>
+      <a href="#">NetworkAGI</a>
+      <a href="#">BuilderAPI</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#vision">Vision</a>
+      <a href="#founder">About</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank">LinkedIn</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <a href="https://www.linkedin.com/in/chandan-sah-rocky-%E6%96%87%E6%B5%A9-5803bb1b4/" target="_blank">Founder's LinkedIn</a>
+      <a href="#" onclick="openModal(); return false;">Join Waitlist</a>
+      <a href="mailto:hello@foundersagi.com">Email Us</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 Founders AGI Foundation. All rights reserved.</span>
+    <span>Built with 🔥 by Chandan Sah Rocky</span>
+  </div>
+</footer>
+
+<!-- WAITLIST MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="handleModalBgClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <div id="modal-form-area">
+      <h3>Join the Waitlist</h3>
+      <p>Be among the first founders to access Founders AGI. We'll reach out when your spot is ready.</p>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="f-name" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="f-email" placeholder="you@startup.com">
+      </div>
+      <div class="form-group">
+        <label>What stage is your startup?</label>
+        <select id="f-stage">
+          <option value="">Select stage</option>
+          <option>Idea Stage</option>
+          <option>Pre-Revenue / Building</option>
+          <option>Early Traction (1–100 customers)</option>
+          <option>Scaling (Series A+)</option>
+          <option>Not a founder — just curious</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Which product interests you most?</label>
+        <select id="f-product">
+          <option value="">Select product</option>
+          <option>FounderMind (AI Co-Founder)</option>
+          <option>PitchForge (Pitch Decks)</option>
+          <option>LaunchOS (Launch Kit)</option>
+          <option>MarketLens (Market Intelligence)</option>
+          <option>NetworkAGI (Connections)</option>
+          <option>All of them!</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 8px;" onclick="submitWaitlist()">
+        Secure My Spot →
+      </button>
+
+      <p style="font-size: 12px; text-align: center; margin-top: 16px; margin-bottom: 0; color: var(--text3);">No spam. Ever. We'll only email you about Founders AGI.</p>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="checkmark">✅</div>
+      <h4>You're on the list!</h4>
+      <p>We'll be in touch soon. Follow us on LinkedIn for updates in the meantime.</p>
+      <br>
+      <a href="https://www.linkedin.com/company/founders-agi-foundation/" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        Follow on LinkedIn →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO FALLBACK SCRIPT -->
+<script>
+  document.querySelectorAll('img[src="logo.png"]').forEach(img => {
+    img.onerror = function() {
+      const container = this.parentElement;
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("width", this.width || "36");
+      svg.setAttribute("height", this.height || "36");
+      svg.setAttribute("viewBox", "0 0 36 36");
+      svg.innerHTML = '<circle cx="18" cy="18" r="17" fill="none" stroke="rgba(110,184,74,0.6)" stroke-width="1.5"/><text x="18" y="23" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="800" fill="#6eb84a">FA</text>';
+      this.replaceWith(svg);
+    };
+  });
+
+  document.getElementById('desktop-linkedin').style.display = window.innerWidth > 900 ? 'inline-flex' : 'none';
+</script>
+
+<script>
+  function openModal() {
+    document.getElementById('modal-bg').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-bg').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalBgClick(e) {
+    if (e.target === document.getElementById('modal-bg')) closeModal();
+  }
+
+  function submitWaitlist() {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    if (!name || !email) {
+      alert('Please fill in your name and email!');
+      return;
+    }
+    document.getElementById('modal-form-area').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    const entries = JSON.parse(localStorage.getItem('fagi-waitlist') || '[]');
+    entries.push({
+      name,
+      email,
+      stage: document.getElementById('f-stage').value,
+      product: document.getElementById('f-product').value,
+      date: new Date().toISOString()
+    });
+    try { localStorage.setItem('fagi-waitlist', JSON.stringify(entries)); } catch(e){}
+  }
+
+  function toggleMobileMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.classList.toggle('open');
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+</body>
+</html>
